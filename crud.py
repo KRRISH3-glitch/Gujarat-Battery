@@ -1,0 +1,67 @@
+from firebase_config import db
+from datetime import datetime
+
+# -------------------------
+# ADD CUSTOMER 
+# -------------------------
+def add_customer(
+    name, mobile, address, battery_name, brand,
+    serial_no, vehicle_no, price, discount,
+    remaining_amount, has_remaining, date,note
+):
+    total_amount = price - discount
+
+    customer_data = {
+        "name": name,
+        "mobile": mobile,
+        "address": address,
+        "battery_name": battery_name,
+        "brand": brand,
+        "serial_no": serial_no,
+        "vehicle_no": vehicle_no,
+        "price": price,
+        "discount": discount,
+        "total_amount": total_amount,
+        "remaining_amount": remaining_amount,
+        "has_remaining": has_remaining,
+
+        # DATE SAVED HERE
+        "date": date,
+        #Note Saved here
+        "note": note,
+
+        # optional (keep if you want)
+        "created_at": datetime.now()
+    }
+
+    db.collection("customers").add(customer_data)
+
+
+# -------------------------
+# GET ALL CUSTOMERS
+# -------------------------
+def get_all_customers():
+    docs = db.collection("customers").stream()
+    return [{**d.to_dict(), "id": d.id} for d in docs]
+
+
+# -------------------------
+# GET PENDING CUSTOMERS
+# -------------------------
+def get_pending_customers():
+    docs = db.collection("customers").where("remaining_amount", ">", 0).stream()
+    return [{**d.to_dict(), "id": d.id} for d in docs]
+
+
+# -------------------------
+# UPDATE CUSTOMER
+# -------------------------
+def update_customer(doc_id, data):
+    db.collection("customers").document(doc_id).update(data)
+
+
+# -------------------------
+# DELETE CUSTOMER
+# -------------------------
+def delete_customer(doc_id):
+    db.collection("customers").document(doc_id).delete()
