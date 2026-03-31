@@ -31,7 +31,7 @@ from crud import add_customer, get_all_customers, get_pending_customers, update_
 # ============================================================
 BRANCH_NAME     = "🔋GBS — Dahegam"
 BRANCH_ADDRESS  = "Nehru Chockdi Dahegam, Gandhinagar 382021"
-BRANCH_PHONE    = "9824050812"
+BRANCH_PHONE    = "9099745456"
 
 # ── CREDENTIALS ──────────────────────────────────────────────
 APP_USERNAME = "Admin"
