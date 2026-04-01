@@ -28,7 +28,7 @@ from crud import add_customer, get_all_customers, get_pending_customers, update_
 # ============================================================
 #  BRANCH CONFIG
 # ============================================================
-BRANCH_NAME    = "GB — Gandhinagar Branch"
+BRANCH_NAME    = "GB"
 BRANCH_ADDRESS = "Nehru CHockdi, Gandhinagar"
 BRANCH_PHONE   = "9099745456"
 
@@ -487,8 +487,8 @@ if not st.session_state.logged_in:
 # ============================================================
 st.markdown(f"""
 <div class="gbs-header">
-  <div class="gbs-header-title">🔋 Gujarat Battery Service</div>
-  <div class="gbs-header-badge">Gandhinagar</div>
+  <div class="gbs-header-title">🔋 Gajanand Battery</div>
+  <div class="gbs-header-badge">Dahegam</div>
 </div>
 <div class="header-spacer"></div>
 """, unsafe_allow_html=True)
@@ -531,7 +531,7 @@ if st.session_state.menu == "Dashboard":
 
     st.markdown(f"""
     <div class="brand-header">
-      <div class="brand-name">Gujarat Battery Service</div>
+      <div class="brand-name">Gajanand Battery</div>
       <div class="brand-branch">📍 {BRANCH_ADDRESS} &nbsp;•&nbsp; 📞 {BRANCH_PHONE}</div>
     </div>""", unsafe_allow_html=True)
 
